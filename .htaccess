@@ -1,0 +1,19 @@
+# Отключить листинг директорий
+Options -Indexes
+
+# Блокировать доступ только к /include/
+RewriteEngine On
+RewriteRule ^include/ - [F,L]
+
+# Разрешить доступ к /wwwroot/uploads/ только для файлов
+<FilesMatch "\.(jpg|jpeg|png|gif|txt)$">
+    Require all granted
+</FilesMatch>
+
+# Управление заголовками
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header always set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+</IfModule>
