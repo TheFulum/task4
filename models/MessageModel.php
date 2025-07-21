@@ -10,7 +10,10 @@ class MessageModel extends Model
         try {
             $stmt->execute([$text, $fileName, $userId, $name, $email]);
         } catch (Exception $e) {
-            die('Ошибка сохранения сообщения: ' . $e);
+            setcookie('error', 'Ошибка сохранения сообщения: ' . $e, time() + 1, '/', '', true, true);
+            header("Location: /");
+
+            return;
         }
 
         setcookie('success', 'Сообщение успешно добавленно', time() + 1, '/', '', true, true);

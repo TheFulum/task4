@@ -22,7 +22,7 @@ $success = $_COOKIE ['register_success'] ?? '';
                 <div class="alert alert-success"><?= htmlspecialchars($success) ?></div>
             <?php endif; ?>
 
-            <form method="post" action="/logical/Account/Auth.php">
+            <form method="post" action="/logical/account/auth.php">
                 <div class="mb-3">
                     <label for="email" class="form-label">Email*</label>
                     <input type="email" class="form-control rounded-3" id="email" name="email"

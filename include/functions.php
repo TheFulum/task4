@@ -2,7 +2,7 @@
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
-// Подстановка bb-кодов
+// Парс bb-кодов
 function parse_bbcodes($text)
 {
     $text = htmlspecialchars($text, ENT_QUOTES, 'UTF-8');

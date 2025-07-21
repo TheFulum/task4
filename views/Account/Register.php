@@ -1,7 +1,7 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/core/session_init.php';
 $pageTitle = 'Регистрация';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/views/Layout/Header.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/views/layout/header.php';
 
 $oldName = $_COOKIE['old_name'] ?? '';
 $oldEmail = $_COOKIE['old_email'] ?? '';
@@ -19,7 +19,7 @@ $error = $_COOKIE['register_error'] ?? null;
             <?php endif; ?>
 
 
-            <form method="post" action="/logical/Account/Auth.php" id="registerForm">
+            <form method="post" action="/logical/account/auth.php" id="registerForm">
                 <div class="mb-3">
                     <label for="name" class="form-label">Имя*</label>
                     <input type="text" class="form-control rounded-3" value="<?= htmlspecialchars($oldName) ?>"
@@ -56,4 +56,4 @@ $error = $_COOKIE['register_error'] ?? null;
 
 <script src="/wwwroot/scripts/validationForm.js"></script>
 
-<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/views/Layout/Footer.php'; ?>
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/views/layout/footer.php'; ?>

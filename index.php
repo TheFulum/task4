@@ -164,9 +164,9 @@ $totalPages = ceil($totalMessages / $limit);
                         <div class="d-flex justify-content-between mb-2">
                             <div>
                                 <strong><?= htmlspecialchars($message['name']) ?></strong>
-                                <span class="text-muted ms-2">
-                                    <?= htmlspecialchars($message['email']) ?>
-                                    <?= ($currentUser['email'] ?? null) === $message['email'] ? '(Вы)' : '' ?>
+                                <span class="text-muted">
+                                    <?= '(' . htmlspecialchars($message['email']) . ')' ?>
+                                    <?= ($userEmail ?? null) === $message['email'] ? '(Вы)' : '' ?>
                                 </span>
                             </div>
                             <small class="text-muted">
