@@ -28,6 +28,7 @@ $isLoggedIn = isset($_SESSION['user_id']) ?? null;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= isset($pageTitle) ? htmlspecialchars($pageTitle) : 'Чат' ?></title>
+    <link rel="icon" type="image/x-icon" href="wwwroot/favicon.ico">
     <link rel="stylesheet" href="/wwwroot/styles/bootstrap5.3.7.css">
     <link rel="stylesheet" href="/wwwroot/styles/main.css">
 </head>

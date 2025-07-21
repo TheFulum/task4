@@ -1,13 +1,12 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/core/session_init.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/core/session_init.php';
 $pageTitle = 'Вход';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/views/Layout/Header.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/views/layout/header.php';
 
-$oldEmail = $_SESSION['old_email'] ?? '';
-$error = $_SESSION['login_error'] ?? null;
-$success = $_SESSION['register_success'] ?? '';
+$oldEmail = $_COOKIE['old_email'] ?? '';
+$error = $_COOKIE['login_error'] ?? null;
+$success = $_COOKIE ['register_success'] ?? '';
 
-unset($_SESSION['old_email'], $_SESSION['login_error']);
 ?>
 
 <div class="container mt-5" style="max-width: 450px;">
@@ -44,4 +43,4 @@ unset($_SESSION['old_email'], $_SESSION['login_error']);
     </div>
 </div>
 
-<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/views/Layout/Footer.php'; ?>
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . '/views/layout/footer.php'; ?>

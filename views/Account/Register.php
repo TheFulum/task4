@@ -3,11 +3,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/core/session_init.php';
 $pageTitle = 'Регистрация';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/views/Layout/Header.php';
 
-$oldName = $_SESSION['old_name'] ?? '';
-$oldEmail = $_SESSION['old_email'] ?? '';
-$error = $_SESSION['register_error'] ?? null;
+$oldName = $_COOKIE['old_name'] ?? '';
+$oldEmail = $_COOKIE['old_email'] ?? '';
+$error = $_COOKIE['register_error'] ?? null;
 
-unset($_SESSION['old_name'], $_SESSION['old_email'], $_SESSION['register_error']);
 ?>
 
 <div class="container mt-5" style="max-width: 500px;">

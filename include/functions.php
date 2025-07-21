@@ -2,57 +2,27 @@
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
-function save_file($file)
+// Подстановка bb-кодов
+function parse_bbcodes($text)
 {
-    $result = ['error' => null, 'name' => '', 'new_file_name' => '', 'type' => '', 'path' => ''];
+    $text = htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
 
-    if (!is_dir(UPLOAD_DIR)) {
-        mkdir(UPLOAD_DIR, 0755, true);
+    $replacements = [
+        '/\[b\](.*?)\[\/b\]/is' => '<b>$1</b>',
+        '/\[i\](.*?)\[\/i\]/is' => '<i>$1</i>',
+        '/\[u\](.*?)\[\/u\]/is' => '<u>$1</u>'
+    ];
+
+    foreach ($replacements as $pattern => $replacement) {
+        $text = preg_replace($pattern, $replacement, $text);
     }
 
-    $file_name = basename($file['name']);
-    $file_tmp = $file['tmp_name'];
-    $file_type = $file['type'];
-    $file_size = $file['size'];
-    $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
-
-    
-
-    if (in_array($file_ext, ALLOWED_IMAGE_TYPES)) {
-        [$width, $height] = getimagesize($file_tmp);
-        if ($width > MAX_IMAGE_WIDTH || $height > MAX_IMAGE_HEIGHT) {
-            $result['error'] = "Картинка не должна быть больше 320x240 пикселей";
-            return $result;
-        }
-    } elseif ($file_ext !== ALLOWED_FILE_EXTENSIONS) {
-        $result['error'] = "Неверный тип файла. Картинки только в формате JPG, GIF, PNG. Текстовый файл только в формате TXT";
-        return $result;
-    }
-
-    if ($file_ext === ALLOWED_FILE_EXTENSIONS && $file_size > MAX_FILE_SIZE) {
-        $result['error'] = "Текстовый файл не должен быть больше 100KB";
-        return $result;
-    }
-
-    // Генерация уникального имени файла
-    $new_file_name = uniqid() . '.' . $file_ext;
-    $destination = UPLOAD_DIR . $new_file_name;
-
-    if (move_uploaded_file($file_tmp, $destination)) {
-        $result['name'] = $file_name;
-        $result['type'] = $file_type;
-        $result['path'] = $destination;
-        $result['new_file_name'] = $new_file_name;
-    } else {
-        $result['error'] = "Ошибка загрузки файла";
-    }
-
-    return $result;
+    return nl2br($text);
 
 }
 
-// ip юзера
-function get_user_ip()
+// Ip юзера
+function get_user_ip(): string
 {
     static $ipaddress = null;
     if (empty($ipaddress)) {
@@ -65,8 +35,8 @@ function get_user_ip()
     return $ipaddress;
 }
 
-// агент юзера
-function get_user_agent()
+// Агент юзера
+function get_user_agent(): string
 {
     static $userAgent = null;
     if (empty($userAgent)) {

@@ -1,0 +1,27 @@
+память
+	Kingston FURY Impact DDR5 16 ГБ 5200 МГц SODIMM
+		5200 - https://www.wildberries.by/catalog/277272264/detail.aspx
+		4800 - https://catalog.onliner.by/dram/kingston/kf548s38ib16 (5600 - https://catalog.onliner.by/dram/kingston/kf556s40ib16)
+	
+
+	Corsair Vengeance DDR5 16GB 5200MHz SODIMM
+		5200 - https://www.amazon.com/CORSAIR-Vengeance-5200MHz-Compatible-Computer/dp/B0CXHN28BG
+	
+
+	Crucial DDR5 16 ГБ 5200 МГц SODIMM
+		5200 - https://www.amazon.de/Crucial-5200MHz-4800MHz-Laptop-Speicher-CT16G52C42S5/dp/B0BNXXFSBR?th=1
+
+
+
+
+ssd
+	Western Digital SN770 1TB NVMe SSD
+		https://www.amazon.de/WD_BLACK-High-Performance-Gaming-Schreiben-Schwarz/dp/B09QV692XY?th=1
+
+
+	Samsung 980 PRO 1TB NVMe SSD
+		https://www.amazon.de/Samsung-7-000-Internes-Solid-MZ-V8P1T0BW/dp/B08GS7748F?th=1
+
+
+	Western Digital WD_BLACK SN850X 1TB NVMe SSD
+		https://www.amazon.de/WD_BLACK-SN850X-2280-Speicher-Gaming/dp/B0B7CKVCCV
